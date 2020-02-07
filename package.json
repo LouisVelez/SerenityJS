@@ -1,0 +1,37 @@
+{
+  "name": "serene-testing",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "postinstall": "serenity-bdd update",
+    "clean": "rimraf target",
+    "test": "failsafe clean test:execute test:report",
+    "test:execute": "protractor ./protractor.conf.js",
+    "test:execute:wip": "protractor ./protractor.conf.js --cucumberOpts.tags=@wip",
+    "test:report": "serenity-bdd run --features ./features",
+    "wip": "failsafe clean test:execute:wip test:report",
+    "lint": "tslint --project tsconfig.json --format stylish"
+  },
+  "dependencies": {
+    "@serenity-js/assertions": "2.0.1",
+    "@serenity-js/core": "2.0.1",
+    "@serenity-js/cucumber": "2.0.1",
+    "@serenity-js/protractor": "2.0.1",
+    "@serenity-js/rest": "2.0.1",
+    "@serenity-js/serenity-bdd": "2.0.1",
+    "@types/cucumber": "^4.0.7",
+    "@types/node": "^10.14.20",
+    "axios": "^0.19.0",
+    "chromedriver": "^80.0.0",
+    "cucumber": "^5.1.0",
+    "geckodriver": "^1.19.1",
+    "is-ci": "^2.0.0",
+    "npm-failsafe": "^0.4.1",
+    "protractor": "^5.4.2",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "tslint-microsoft-contrib": "^6.2.0",
+    "typescript": "^3.6.3"
+  }
+}
